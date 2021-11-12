@@ -16,6 +16,28 @@ class NodeClient:
 
   def close(self):
     self.socket.close()
+  
+  '''
+    Message is an encoded string
+    
+    Example:
+
+      HTTPMessage = "GET / HTTP/1.1\r\nHost: localhost\r\n Connection: close\r\n\r\n"
+      bytes = str.encode(HTTPMessage)
+  '''
+  def send(self, message):
+    self.socket.sendall(message)
+    self.__receive()
+
+  def __receive(self):
+    while True:
+
+      res = self.socket.recv(1024)
+
+      if not res:
+        break
+
+    self.close()
 
   def Connect2Server():
 
