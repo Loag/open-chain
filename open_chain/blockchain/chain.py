@@ -1,5 +1,4 @@
-from transaction import Transaction
-
+from block import Block 
 class Chain:
   def __init__(self, blocks=[], size=0):
     self.size = size
@@ -7,6 +6,8 @@ class Chain:
 
   def new_block(self, transactions):
     ind = self.size + 1
+    block = Block(ind, transactions)
+    
     pass
 
   def prev_block(self):

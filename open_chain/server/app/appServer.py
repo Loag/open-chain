@@ -2,11 +2,12 @@
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 DEFAULT_APP_HOST = '0.0.0.0'
 DEFAULT_APP_PORT = 1783
+CONTENT_TYPE = 'application/json'
 
 class HTTPRequestHandler(BaseHTTPRequestHandler):
-  def _set_headers(self):
-      self.send_response(200)
-      self.send_header('Content-type', 'text/html')
+  def _set_headers(self, success=True):
+      self.send_response(200 if success else 500)
+      self.send_header('Content-type', CONTENT_TYPE)
       self.end_headers()
 
   def do_GET(self):
