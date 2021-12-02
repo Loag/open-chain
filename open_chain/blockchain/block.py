@@ -1,3 +1,4 @@
+from transaction import Transaction
 from time import time
 from uuid import uuid4
 
@@ -42,3 +43,15 @@ class BlockStatus:
   
   def signed(self):
     self.status = 'SIGNED'
+
+'''
+ Predefined first block
+'''
+class Genesis(Block):
+  def __init__(self):
+   self.index = 0
+   self.transactions = [self.__gen_trans] 
+  
+  @property
+  def __gen_trans(self):
+    return Transaction("01", "IN", "000000000001", "00")

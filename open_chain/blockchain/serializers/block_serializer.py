@@ -1,13 +1,14 @@
-
+from block import Block
 '''
   seralize block for persistence
 '''
 class BlockSerializer:
 
   @staticmethod
-  def serialize(self, block):
+  def serialize(block):
     return ""
   
   @staticmethod
-  def deserialize(self, block_str: str):
+  def deserialize(block_str):
+    # create and return block from string
     return None

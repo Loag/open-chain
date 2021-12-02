@@ -1,3 +1,4 @@
+from chain import Chain
 
 class ChainSerializer:
   @staticmethod
